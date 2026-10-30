@@ -11,7 +11,7 @@ const lightboxCaption = document.getElementById('lightbox-caption');
 const lightboxClose = lightbox?.querySelector('.lightbox-close');
 const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
 let explicitTheme = false;
-try { explicitTheme = ['light', 'dark'].includes(localStorage.getItem('xinyu-theme')); } catch (_) {}
+try { explicitTheme = ['light', 'dark'].includes(localStorage.getItem('wei-guo-theme')); } catch (_) {}
 function announceCount() {
   const count = papers.filter(paper => !paper.hidden).length;
   document.getElementById('filter-status').textContent = root.dataset.language === 'zh' ? `显示 ${count} 篇论文` : `Showing ${count} publications`;
@@ -29,9 +29,9 @@ function setLanguage(language) {
   root.dataset.language = lang;
   root.lang = lang === 'zh' ? 'zh-CN' : 'en';
   languageButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.setLanguage === lang)));
-  document.title = 'Wei Guo';
+  document.title = lang === 'zh' ? '郭伟 · Wei Guo' : 'Wei Guo · 郭伟';
   if (lightboxClose) lightboxClose.setAttribute('aria-label', lang === 'zh' ? '关闭图片预览' : 'Close image preview');
-  try { localStorage.setItem('xinyu-language', lang); } catch (_) {}
+  try { localStorage.setItem('wei-guo-language', lang); } catch (_) {}
   announceCount();
   updateThemeControl();
 }
@@ -62,7 +62,7 @@ themeButton.addEventListener('click', () => {
   const theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
   root.dataset.theme = theme;
   explicitTheme = true;
-  try { localStorage.setItem('xinyu-theme', theme); } catch (_) {}
+  try { localStorage.setItem('wei-guo-theme', theme); } catch (_) {}
   updateThemeControl();
 });
 systemTheme.addEventListener('change', event => {
