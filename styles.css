@@ -91,3 +91,16 @@ html[data-theme=dark] .venue-rank--sci{border-color:#536e63;background:#29342f;c
 .contact-reveal:hover{color:var(--text)}
 .contact-value{display:inline-block;margin-left:5px;padding:0 5px;border:1px solid var(--line);border-radius:3px;background:var(--hover);color:var(--text);font-family:var(--ui);font-size:.88em;font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .contact-value[hidden]{display:none}
+
+/* Reference-style publication list: preserve the existing filters without thumbnails. */
+.reference-publications{margin-top:4px}
+.paper.paper--reference{display:block;padding:12px 0}
+.reference-entry{font-size:15px;line-height:1.75;overflow-wrap:anywhere}
+.reference-entry strong{font-weight:700}
+@media(max-width:560px){.paper.paper--reference{display:block;padding:10px 0}.reference-entry{font-size:14px;line-height:1.7}}
+
+/* Keep the portrait's upper margin visible and align education cards in each grid row. */
+.portrait{object-position:center top}
+.institutions{align-items:stretch}
+.institution:not([open]){height:100%}
+.institution:not([open]) summary{height:100%;align-content:center}

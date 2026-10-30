@@ -9,7 +9,6 @@ const lightbox = document.getElementById('image-lightbox');
 const lightboxImage = document.getElementById('lightbox-image');
 const lightboxCaption = document.getElementById('lightbox-caption');
 const lightboxClose = lightbox?.querySelector('.lightbox-close');
-const contactRevealButtons = [...document.querySelectorAll('[data-contact-reveal]')];
 const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
 let explicitTheme = false;
 try { explicitTheme = ['light', 'dark'].includes(localStorage.getItem('xinyu-theme')); } catch (_) {}
@@ -30,7 +29,7 @@ function setLanguage(language) {
   root.dataset.language = lang;
   root.lang = lang === 'zh' ? 'zh-CN' : 'en';
   languageButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.setLanguage === lang)));
-  document.title = 'Xinyu Pu';
+  document.title = 'Wei Guo';
   if (lightboxClose) lightboxClose.setAttribute('aria-label', lang === 'zh' ? '关闭图片预览' : 'Close image preview');
   try { localStorage.setItem('xinyu-language', lang); } catch (_) {}
   announceCount();
@@ -38,15 +37,6 @@ function setLanguage(language) {
 }
 languageButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.setLanguage)));
 setLanguage(root.dataset.language);
-contactRevealButtons.forEach(button => button.addEventListener('click', () => {
-  const value = document.getElementById(button.getAttribute('aria-controls'));
-  if (!value) return;
-  const willReveal = button.getAttribute('aria-expanded') !== 'true';
-  button.setAttribute('aria-expanded', String(willReveal));
-  button.textContent = willReveal ? button.dataset.hideLabel : button.dataset.showLabel;
-  value.textContent = willReveal ? ['F330', '470351'].join('') : '';
-  value.hidden = !willReveal;
-}));
 filters.forEach(button => button.addEventListener('click', () => {
   filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
   papers.forEach(paper => { paper.hidden = button.dataset.filter !== 'all' && paper.dataset.category !== button.dataset.filter; });
