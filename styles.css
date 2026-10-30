@@ -99,6 +99,12 @@ html[data-theme=dark] .venue-rank--sci{border-color:#536e63;background:#29342f;c
 .reference-entry strong{font-weight:700}
 @media(max-width:560px){.paper.paper--reference{display:block;padding:10px 0}.reference-entry{font-size:14px;line-height:1.7}}
 
+.publication-legend{margin:3px 0 12px;color:var(--muted);font-size:13px}
+.publication-group+.publication-group{margin-top:19px}
+.publication-group-title{padding-bottom:5px;border-bottom:1px solid var(--line);color:var(--link);font-size:18px;font-weight:600;line-height:1.5}
+.publication-group[hidden]{display:none}
+@media(max-width:560px){.publication-legend{font-size:12px}.publication-group+.publication-group{margin-top:15px}.publication-group-title{font-size:16px}}
+
 /* Keep the portrait's upper margin visible and align education cards in each grid row. */
 .portrait{object-position:center top}
 .institutions{align-items:stretch}
