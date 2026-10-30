@@ -7,7 +7,7 @@ Wei Guo 的中英文学术主页，使用纯 HTML、CSS 和 JavaScript 构建，
 - Current status: Ph.D. Student
 - Current institution: Nanjing University of Science and Technology
 - Previous institution: Southwest University
-- Research interests: Multi-view Clustering, Incomplete and Unaligned Multi-view Learning, Multi-omics Cancer Subtyping, Tensor Learning
+- Research interests: Unsupervised machine learning and bioinformatics, including multi-view clustering and multi-omics cancer subtyping
 
 ## 本地预览
 

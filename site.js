@@ -3,7 +3,6 @@ const root = document.documentElement;
 const languageButtons = [...document.querySelectorAll('[data-set-language]')];
 const filters = [...document.querySelectorAll('[data-filter]')];
 const papers = [...document.querySelectorAll('.paper')];
-const publicationGroups = [...document.querySelectorAll('[data-publication-group]')];
 const themeButton = document.getElementById('theme-toggle');
 const paperFigures = [...document.querySelectorAll('.paper-figure')];
 const lightbox = document.getElementById('image-lightbox');
@@ -39,9 +38,13 @@ function setLanguage(language) {
 languageButtons.forEach(button => button.addEventListener('click', () => setLanguage(button.dataset.setLanguage)));
 setLanguage(root.dataset.language);
 filters.forEach(button => button.addEventListener('click', () => {
+  const category = button.dataset.filter;
+  let visibleIndex = 0;
   filters.forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
-  papers.forEach(paper => { paper.hidden = button.dataset.filter !== 'all' && paper.dataset.category !== button.dataset.filter; });
-  publicationGroups.forEach(group => { group.hidden = button.dataset.filter !== 'all' && group.dataset.publicationGroup !== button.dataset.filter; });
+  papers.forEach(paper => {
+    paper.hidden = category !== 'all' && paper.dataset.category !== category;
+    if (!paper.hidden) paper.querySelector('.reference-number').textContent = `[${++visibleIndex}]`;
+  });
   announceCount();
 }));
 paperFigures.forEach(link => link.addEventListener('click', event => {
