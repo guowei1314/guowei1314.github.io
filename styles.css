@@ -116,3 +116,9 @@ html[data-theme=dark] .venue-rank--sci{border-color:#536e63;background:#29342f;c
 .institutions{align-items:stretch}
 .institution:not([open]){height:100%}
 .institution:not([open]) summary{height:100%;align-content:center}
+
+/* Add subtle depth without competing with the academic content. */
+:root{--ambient-glow:rgba(36,103,154,.08)}
+html[data-theme=dark]{--ambient-glow:rgba(62,111,151,.14)}
+body{background:radial-gradient(circle at 50% 0,var(--ambient-glow),transparent 430px),var(--bg)}
+@media print{:root,html[data-theme=dark]{--ambient-glow:transparent}}
