@@ -122,3 +122,7 @@ html[data-theme=dark] .venue-rank--sci{border-color:#536e63;background:#29342f;c
 html[data-theme=dark]{--ambient-glow:rgba(62,111,151,.14)}
 body{background:radial-gradient(circle at 50% 0,var(--ambient-glow),transparent 430px),var(--bg)}
 @media print{:root,html[data-theme=dark]{--ambient-glow:transparent}}
+
+/* Reserve enough space for full publication acceptance dates. */
+.news-item time{flex-basis:92px}
+@media(max-width:560px){.news-item time{flex-basis:82px}}
