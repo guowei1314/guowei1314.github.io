@@ -111,8 +111,8 @@ html[data-theme=dark] .venue-rank--sci{border-color:#536e63;background:#29342f;c
 .project-entry time{flex:0 0 auto;color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
 @media(max-width:560px){.project-entry{display:block}.project-entry time{display:block;margin-top:6px;font-size:13px}.project-description strong{font-size:15px}.project-description span{font-size:13px}}
 
-/* Keep the portrait's upper margin visible and align education cards in each grid row. */
-.portrait{object-position:center top}
+/* Show the complete portrait at its original aspect ratio and align education cards in each grid row. */
+.portrait{height:auto;object-fit:contain;object-position:center}
 .institutions{align-items:stretch}
 .institution:not([open]){height:100%}
 .institution:not([open]) summary{height:100%;align-content:center}
